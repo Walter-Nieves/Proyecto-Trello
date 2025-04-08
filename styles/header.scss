@@ -1,0 +1,107 @@
+header {
+    background-color: #0c66e4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    bottom: 50%;
+    transition: bottom 1s ease;
+    z-index: 1;
+    height: 70px;
+
+    &>a {
+        display: flex;
+        padding: 10px;
+        text-decoration: none;
+        align-items: center;
+        height: 100%;
+
+        &>img {
+            display: flex;
+            width: 70px;
+            background-color: white;
+            object-fit: cover;
+            border-radius: 9px;
+        }
+
+        h1 {
+            right: 0;
+            font-size: 50px;
+            margin-top: 10px;
+            color: white;
+        }
+    }
+
+    &>div.perfil {
+        height: 100%;
+        display: flex;
+        position: relative;
+        margin-right: 10px;
+        align-items: center;
+
+        &:hover ul.ul-header {
+            visibility: visible;
+        }
+
+        &>label {
+            display: none;
+            height: 100%;
+
+            &>img {
+                display: flex;
+                height: 100%;
+            }
+
+            &>input {
+                display: none;
+            }
+        }
+
+        &>div {
+            display: flex;
+            height: 100%;
+            align-items: center;
+
+            &>strong.nombreUsuarioHeader {
+                justify-content: center;
+                text-align: center;
+                font-size: 4vh;
+                overflow-wrap: anywhere;
+                color: white;
+                margin-right: 10px;
+                font-size: larger;
+            }
+
+            &>img.user {
+                height: 90%;
+                aspect-ratio: 1;
+                background-color: white;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            &>ul.ul-header {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                right: 0;
+                top: 95%;
+                border-radius: 10px;
+                visibility: hidden;
+
+                &>li.li-header {
+                    list-style: none;
+                    background-color: white;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    padding: 5px;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

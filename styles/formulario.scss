@@ -1,0 +1,101 @@
+%formulario {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 100%;
+
+    h2 {
+        padding: 0;
+    }
+
+    label {
+        padding: 0;
+    }
+
+    input {
+        border-radius: 5px;
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    button {
+        margin-top: 10px;
+        border-radius: 5px;
+        background-color: #0c66e4;
+        color: white;
+        font-size: medium;
+        width: 100%;
+    }
+
+    &.fotoPerfil {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        img.userForm {
+            width: 50%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: white;
+            margin: auto;
+            object-fit: cover;
+        }
+
+        &>div.contieneDosbotones {
+            display: flex;
+            width: 100%;
+            gap: 5px;
+
+            &>button.dosBotones {
+                margin-top: 10px;
+                border-radius: 5px;
+                background-color: rgb(110, 109, 109);
+                width: 100%;
+                padding: 3px;
+            }
+        }
+    }
+
+    &.formulario-notas {
+        width: 40%;
+        min-width: 190px;
+        background-color: rgb(245, 240, 231);
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+        border-radius: 10px;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        margin-top: 20px;
+
+        &>label.anotacion {
+            font-size: xx-large;
+            margin-bottom: 20px;
+        }
+
+        &>label.subtitulo {
+            font-size: large;
+        }
+
+        &>textarea {
+            width: 100%;
+            max-width: 100%;
+            min-width: 30%;
+            border-radius: 10px;
+            resize: vertical;
+        }
+
+        &>button.btn-notas {
+            background-color: blue;
+            padding: 5px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+    }
+}
