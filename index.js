@@ -35,7 +35,7 @@ import { guardarDatos,cancelarDatos,cambiarDatos, aceptarModificacion, cancelarM
 
 // });
 
-controlador_vistas.actualizar_vista(2);
+controlador_vistas.actualizar_vista(0);
 
 Elementos.aLinkToRegis.addEventListener("click", irA.login);
 
@@ -58,9 +58,9 @@ Elementos.imgPhoto.addEventListener("click",cambiarFoto);
 
 Elementos.btndataChange.addEventListener('click', cambiarDatos);
 
-// Elementos.formModalDatos.addEventListener("submit",aceptarModificacion);
+Elementos.formModalDatos.addEventListener("submit",aceptarModificacion);
 
-// Elementos.cancelarModificar.addEventListener("click",cancelarModificacion)
+Elementos.cancelarModificar.addEventListener("click",cancelarModificacion);
 
 Elementos.btnDataSave.addEventListener('click',guardarDatos);
 

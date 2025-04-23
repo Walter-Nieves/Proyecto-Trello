@@ -25,11 +25,31 @@ export function guardarDatos(){
 
     }
 
-    const indiceUsuarioExiste = baseUsuarios.findIndex(usuarioBuscar => usuarioBuscar.correo = usuario.actual.correo);
+    const indiceUsuarioExiste = baseUsuarios.findIndex(usuarioBuscar => usuarioBuscar.correo == usuario.actual.correo);
     if(indiceUsuarioExiste == -1){
         alert("Error al guardar cambios en la base de datos");
         return;
     }
+
+    //antes de modificar
+    //usuario actual = anterior@gmail.com
+    //usuario temporal = anterior@gmail.com
+
+    //despues de modificar
+    //usuario actual = anterior@gmail.com
+    //usuario temporal = nuevo@gmail.com
+
+    //guardo el correo anterior para usarlo despues (el bucle no me afecta) <= correo temporal
+
+    //despues de guardar
+    //usuario actual = nuevo@gmail.com
+    //usuario temporal = nuevo@gmail.com
+    //las notas en plan y ahora que cambia las que tienen "anterior" <= correo temporal
+    //notas de carlos@gmail.com
+    //notas de juan@gmail.com
+    //notas de andres@gmail.com
+    //notas de david@gmail.com
+    //notas de anterior@gmail.com
 
     const correoTemporal = usuario.actual.correo;
 
@@ -49,11 +69,12 @@ export function guardarDatos(){
     Elementos.imgHeader.src = usuario.actual.foto;
     Elementos.nombrePerfilHeader.textContent = usuario.actual.nombre.replaceAll("&#60;","<").replaceAll("&#62;",">");
     localStorage.setItem("Notas", JSON.stringify(baseNotas));
+    localStorage.setItem("Usuarios", JSON.stringify(baseUsuarios));
     controlador_vistas.actualizar_vista(3);
 
     setTimeout(() => {
         traerNotas(usuario.actual.correo);
-        Elementos.contCategorias.className = `cont-categorias show-category`
+        // Elementos.contCategorias.className = `cont-categorias show-category`
     }, 500);
 
     usuario.temporal = {};
@@ -135,7 +156,7 @@ export  function aceptarModificacion(event){
     usuario.temporal.apellido = Elementos.apellidoModificar.value.replaceAll("<","&#60;").replaceAll(">","&#62;");
     usuario.temporal.edad = Elementos.edadModificar.value.replaceAll("<","&#60;").replaceAll(">","&#62;");
     usuario.temporal.correo = campoCorreo;
-    usuario.temporal.clave = campoClaveNueva;
+    usuario.temporal.clave = campoClaveNueva.replaceAll("<","&#60;").replaceAll(">","&#62;");
 
     Elementos.nombrePerfil.textContent = usuario.temporal.nombre.replaceAll("<","&#60;").replaceAll(">","&#62;")+ " "+ usuario.temporal.apellido.replaceAll("&#60;","<").replaceAll("&#62;",">");
     Elementos.modalDatos.classList.add("modal-hidden");
