@@ -80,7 +80,7 @@ main {
   & > div.contiene-calificaciones {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     position: absolute;
     top: 0%;
     align-items: center;
@@ -221,6 +221,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility:visible ;
 
     .cont-modal{
       display: flex;
@@ -229,11 +230,24 @@ main {
       background-color: white;
       border-radius: 10px;
       padding: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      transform: scaleY(1);
+      
       
 
       form {
         @extend %formulario;
 
+      }
+    }
+    &.modal-hidden{
+      background-color: transparent;
+      visibility:hidden ;
+      transition: visibility 0s 0.3s ;
+
+
+      .cont-modal{
+        transform: scaleY(0);
       }
     }
   }

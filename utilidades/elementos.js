@@ -42,12 +42,25 @@ seccionPhoto : document.getElementById("vista2"),
 nombrePerfil: document.getElementById("nombreUsuario"),
 imgPhoto : document.getElementById("userForm"),
 btndataChange : document.getElementById("cambiardatos"),
-btnPhotoCancel : document.getElementById("cancelar"),
-btnPhotoSave : document.getElementById("guardar"),
+btnDataCancel : document.getElementById("cancelar"),
+btnDataSave : document.getElementById("guardar"),
 categoriaNotas: document.getElementById("agrupar-notas"),
 inputTituloNota: document.getElementById("create-notes"),
 inputDescripcionNota: document.getElementById("descripcion"),
 
+//modal modificar datos
+
+modalDatos : document.getElementById("modal-datos"),
+formModalDatos : document.getElementById("form-modificar"),
+nombreModificar : document.getElementById("inputModNombre"),
+apellidoModificar :document.getElementById("inputModApellido"),
+edadModificar :document.getElementById("inputModEdad"),
+correoModificar :document.getElementById("inputModEmailRegistro"),
+claveModificar :document.getElementById("inputModContrasenaRegistro"),
+claveNuevaModificar :document.getElementById("inputModConfirmarContrasena"),
+claveNuevaConfirmacionModificar :document.getElementById("inputModConfirmarNuevaContrasena"),
+cancelarModificar :document.getElementById("Modcancelar"),
+pErrorModificar : document.getElementById("p-modificar"),
 
 };
 

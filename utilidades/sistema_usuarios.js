@@ -2,7 +2,11 @@ import Elementos from "./elementos.js";
 import controlador_vistas from "./controlador.js";
 import Usuario from "../classes/usuario.js";
 
-export const usuario = { actual: {} };
+export const usuario = { 
+    actual: {},
+    temporal: {},
+
+};
 
 
 export function registrarusuario(event) {
@@ -15,7 +19,7 @@ export function registrarusuario(event) {
         //combinar arreglo vacio con datos obtenidos del localStorage
         baseUsuarios = baseUsuarios.concat(JSON.parse(baseUsuariosExiste));
         //buscamos en dicho arreglo si existe un usuario ya registrado con el correo que pusimos en el campo de registro
-        const usuarioExistente = baseUsuarios.find(usuario => usuario.correo == Elementos.correoRegis.value);
+        const usuarioExistente = baseUsuarios.find(user=> user.correo.toLowerCase() == Elementos.correoRegis.value.toLowerCase());
         // si el usuario existe arrojar un error
         if (usuarioExistente != undefined) { // aqui tambien podriamos dejar el condicional de esta manera  if(usuarioExistente)
             Elementos.pErrorRegis.textContent = "Ya hay alguien registrado con este correo"
@@ -28,46 +32,6 @@ export function registrarusuario(event) {
         Elementos.pErrorRegis.textContent = "La contraseña deber ser la misma"
         return;
     }
-    // Elementos.pErrorRegis.textContent="";
-
-    // const usuarioGuardar= new Usuario(
-    //     1,
-    //     Elementos.nombreRegis.value,
-    //     Elementos.apellidoRegis.value,
-    //     Elementos.edadRegis.value,
-    //     Elementos.correoRegis.value,
-    //     Elementos.claveRegis.value,
-    //     "./imagen/user.svg"
-    // );
-    // baseUsuarios.push(usuarioGuardar);
-
-    // const stringBaseUsuarioConUsuarioGuardado = JSON.stringify(baseUsuarios);
-
-    // localStorage.setItem("Usuarios", stringBaseUsuarioConUsuarioGuardado);
-
-    // alert("¡Usuario registrado con exito!");
-
-    // Elementos.formRegis.reset();
-
-    // Elementos.correoLogin.value=usuarioGuardar.correo;
-
-    // controlador_vistas.actualizar_vista(0);
-
-    // const usuarioExistente = localStorage.getItem(Elementos.correoRegis.value);
-
-    // const stringUsuario = JSON.stringify(usuarioGuardar);
-
-    // console.log(stringUsuario);
-
-    // localStorage.setItem(usuarioGuardar.correo,stringUsuario);
-
-
-
-
-    //   if(Elementos.claveRegis.value!=Elementos.claveConfirmRegis.value){
-    //       pErrorRegis.textContent="La contraseña deber ser la misma"
-    //       return;
-    //   }
 
 
     //si no hay ningun error,vaciamos el parrafo de error
@@ -78,7 +42,7 @@ export function registrarusuario(event) {
         Elementos.nombreRegis.value.replaceAll("<", "&#60;").replaceAll(">","&#62;"),
         Elementos.apellidoRegis.value.replaceAll("<", "&#60;").replaceAll(">","&#62;"),
         Elementos.edadRegis.value.replaceAll("<", "&#60;").replaceAll(">","&#62;"),
-        Elementos.correoRegis.value.replaceAll("<", "&#60;").replaceAll(">","&#62;"),
+        Elementos.correoRegis.value.toLowerCase().replaceAll("<", "&#60;").replaceAll(">","&#62;"),
         Elementos.claveRegis.value.replaceAll("<", "&#60;").replaceAll(">","&#62;"),
         "./imagen/user.svg"
     );
@@ -94,15 +58,12 @@ export function registrarusuario(event) {
     setTimeout(
         () => {
             Elementos.formRegis.reset();
-            //nos vamos para formLogin
-            controlador_vistas.actualizar_vista(0);
         }, 500);
 
     //ayudamos al usuario colocandole el correo en el formLogin
-    Elementos.correoLogin.value = usuarioGuardar.correo;
-
-    Elementos.nombrePerfil.textContent = `${usuarioGuardar.nombre.replaceAll("&#60;", "<").replaceAll("&#62;",">")} ${usuarioGuardar.apellido.replaceAll("&#60;", "<").replaceAll("&#62;",">")}`
-    Elementos.nombrePerfilHeader.textContent = `${usuarioGuardar.nombre.replaceAll("&#60;", "<").replaceAll("&#62;",">")} `
+    Elementos.correoLogin.value = Elementos.correoRegis.value;
+    // nos vamos para form login
+    controlador_vistas.actualizar_vista(0);
 
 };
 
@@ -110,6 +71,7 @@ export function IngresarUsuario(event) {
     event.preventDefault();
     // consultar si existe la base de datos de "Usuarios"
     const baseUsuariosExiste = localStorage.getItem("Usuarios");
+
     let baseUsuarios = [];
     //si no existe la base de datos, arrojar un error diciendo que no esta registrado o encontrado
     if (!baseUsuariosExiste) {
@@ -119,9 +81,9 @@ export function IngresarUsuario(event) {
     //si existe ,fusionarlo con el arreglo vacio
     baseUsuarios = baseUsuarios.concat(JSON.parse(baseUsuariosExiste));
 
-    let campoCorreo = Elementos.correoLogin.value.replaceAll("<", "&#60;").replaceAll(">","&#62;");
+    let campoCorreo = Elementos.correoLogin.value.toLowerCase().replaceAll("<", "&#60;").replaceAll(">","&#62;");
 
-    const usuarioExistente = baseUsuarios.find(usuario => usuario.correo == campoCorreo);
+    const usuarioExistente = baseUsuarios.find(user => user.correo.toLowerCase() == campoCorreo.toLowerCase());
 
     //si el usuario no existe arrojar un error
     if (!usuarioExistente) {
@@ -151,9 +113,11 @@ export function IngresarUsuario(event) {
         Elementos.formLogin.reset();
     }, 500);
 
-
     controlador_vistas.actualizar_vista(2);
 
+    for (const clave in usuario.actual){
+        usuario.temporal[clave] = usuario.actual[clave];
+    }
 
 };
 

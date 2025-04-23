@@ -4,6 +4,9 @@ import { limpiarNotas } from "./sistema_notas.js";
 import { usuario } from "./sistema_usuarios.js";
 
 export function configuracion() {
+    for (const clave in usuario.actual){
+        usuario.temporal[clave] = usuario.actual[clave];
+    }
     Elementos.imgPhoto.src = usuario.actual.foto;
     Elementos.nombrePerfil.textContent = `${usuario.actual.nombre.replaceAll("&#60;", "<").replaceAll("&#62;", ">")} ${usuario.actual.apellido.replaceAll("&#60;", "<").replaceAll("&#62;", ">")}`
     limpiarNotas();

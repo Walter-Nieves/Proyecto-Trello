@@ -256,7 +256,7 @@ main > div.contiene-formularios > section > div.iniciar-registar a {
 main > div.contiene-calificaciones {
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   position: absolute;
   top: 0%;
   align-items: center;
@@ -382,6 +382,7 @@ main .modal-notas, main .modal-datos {
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: visible;
 }
 main .modal-notas .cont-modal, main .modal-datos .cont-modal {
   display: flex;
@@ -390,7 +391,18 @@ main .modal-notas .cont-modal, main .modal-datos .cont-modal {
   background-color: white;
   border-radius: 10px;
   padding: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transform: scaleY(1);
 }
+main .modal-notas.modal-hidden, main .modal-datos.modal-hidden {
+  background-color: transparent;
+  visibility: hidden;
+  transition: visibility 0s 0.3s;
+}
+main .modal-notas.modal-hidden .cont-modal, main .modal-datos.modal-hidden .cont-modal {
+  transform: scaleY(0);
+}
+
 .notas-individuales.oculta {
   width: 0vh;
   padding: 0;
@@ -540,7 +552,7 @@ main .modal-notas .cont-modal, main .modal-datos .cont-modal {
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     opacity: 0;
   }
 }

@@ -2,9 +2,12 @@
 import Elementos from "./utilidades/elementos.js";
 import controlador_vistas from "./utilidades/controlador.js";
 import { IngresarUsuario, registrarusuario } from "./utilidades/sistema_usuarios.js";
-import { cambiarDatos, cancelarCambioFoto, guardarCambioFoto } from "./utilidades/sistema_foto.js";
+import { cambiarFoto} from "./utilidades/sistema_foto.js";
 import * as irA from "./utilidades/sistema_vistas_simple.js";
 import { cambiarEstadoNota, crearNota, filtrarNotas,cambiarNota } from "./utilidades/sistema_notas.js";
+import { guardarDatos,cancelarDatos,cambiarDatos, aceptarModificacion, cancelarModificacion } from "./utilidades/sistema.modificar.js";
+
+
 
 
 
@@ -32,7 +35,7 @@ import { cambiarEstadoNota, crearNota, filtrarNotas,cambiarNota } from "./utilid
 
 // });
 
-controlador_vistas.actualizar_vista(1);
+controlador_vistas.actualizar_vista(2);
 
 Elementos.aLinkToRegis.addEventListener("click", irA.login);
 
@@ -47,48 +50,19 @@ Elementos.formRegis.addEventListener("submit", registrarusuario);
 
 Elementos.formLogin.addEventListener("submit", IngresarUsuario);
 
-// Elementos.formLogin.addEventListener("submit",
-//     (event)=>{
-//        event.preventDefault();
 
+Elementos.btnDataCancel.addEventListener('click', cancelarDatos);
 
+Elementos.imgPhoto.addEventListener("click",cambiarFoto);
 
-//        const stringRegistrado= localStorage.getItem(Elementos.correoLogin.value);
-
-//        if(stringRegistrado == null ){
-//         Elementos.pErrorLogin.textContent="usuario no encontrado";
-//         return;
-//        }
-
-// const usuarioRegistrado=JSON.parse(stringRegistrado);
-
-// if(usuarioRegistrado.clave != Elementos.claveLogin.value){
-//     Elementos.pErrorLogin.textContent= "contraseña incorrecta"
-//     return;
-// }
-
-// Elementos.pErrorLogin.textContent="";
-
-// alert(`¡Bienvenido/a ${usuarioRegistrado.nombre}!`)
-// Elementos.formLogin.reset();
-
-// controlador_vistas.usuario_actual=usuarioRegistrado;
-
-// Elementos.imgPhoto.style.backgroundImage=`url(${controlador_vistas.usuario_actual.foto})`
-
-// controlador_vistas.actualizar_vista(2);
-
-//     }
-
-
-
-// );
-
-Elementos.btnPhotoCancel.addEventListener('click', cancelarCambioFoto);
 
 Elementos.btndataChange.addEventListener('click', cambiarDatos);
 
-Elementos.btnPhotoSave.addEventListener('click', guardarCambioFoto);
+// Elementos.formModalDatos.addEventListener("submit",aceptarModificacion);
+
+// Elementos.cancelarModificar.addEventListener("click",cancelarModificacion)
+
+Elementos.btnDataSave.addEventListener('click',guardarDatos);
 
 Elementos.formNotes.addEventListener("submit", crearNota);
 
@@ -97,6 +71,8 @@ Elementos.categoriaNotas.addEventListener("change", filtrarNotas);
 Elementos.groupNotes.addEventListener("change", cambiarEstadoNota);
 
 Elementos.groupNotes.addEventListener("click",cambiarNota);
+
+
 
 // patchElimimarNotas();
 
