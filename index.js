@@ -4,7 +4,7 @@ import controlador_vistas from "./utilidades/controlador.js";
 import { IngresarUsuario, registrarusuario } from "./utilidades/sistema_usuarios.js";
 import { cambiarFoto} from "./utilidades/sistema_foto.js";
 import * as irA from "./utilidades/sistema_vistas_simple.js";
-import { cambiarEstadoNota, crearNota, filtrarNotas,cambiarNota } from "./utilidades/sistema_notas.js";
+import { cambiarEstadoNota, crearNota, filtrarNotas,cambiarNota, modificarNota, cancelarModificarNotas } from "./utilidades/sistema_notas.js";
 import { guardarDatos,cancelarDatos,cambiarDatos, aceptarModificacion, cancelarModificacion } from "./utilidades/sistema.modificar.js";
 
 
@@ -55,6 +55,8 @@ Elementos.btnDataCancel.addEventListener('click', cancelarDatos);
 
 Elementos.imgPhoto.addEventListener("click",cambiarFoto);
 
+// Elementos.imgPhoto.addEventListener("click",guardarFoto);
+
 
 Elementos.btndataChange.addEventListener('click', cambiarDatos);
 
@@ -71,6 +73,10 @@ Elementos.categoriaNotas.addEventListener("change", filtrarNotas);
 Elementos.groupNotes.addEventListener("change", cambiarEstadoNota);
 
 Elementos.groupNotes.addEventListener("click",cambiarNota);
+
+Elementos.formModalNotas.addEventListener("submit",modificarNota);
+
+Elementos.cancelarNotaModificar.addEventListener("click",cancelarModificarNotas);
 
 
 

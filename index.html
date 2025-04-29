@@ -123,8 +123,8 @@
 
                 <hr>
             </div>
-            <!-- <div id="tres-notas" class="tres-notas">
-                <div class="notas-individuales mostrar-nota">
+            <div id="tres-notas" class="tres-notas">
+                <!-- <div class="notas-individuales mostrar-nota">
                     <div>
                         <div class="titulo-nota">
                             <h3>Quimica</h3>
@@ -149,9 +149,9 @@
                             </select>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-            </div> -->
+            </div>
         </div>
         <div id="modal-datos" class="modal-datos modal-hidden">
             <div class="cont-modal">
@@ -180,7 +180,32 @@
                 <p id="p-modificar" class="error-p"></p>
             </div>
         </div>
-        <!-- <div class="modal-notas"></div> -->
+        <div id="mod-cont-notes"  class="modal-notas modal-hidden">
+            <div class="cont-modal contiene-calificaciones">
+                <form id="form-mod-notas" class="formulario" class="formulario-notas">
+                    <h2 class="anotacion">Modificar anotación</h2>
+                    <label class="subtitulo" for="mod-create-notes">Modificar titulo de la nota</label>
+                    <input type="text" id="mod-create-notes">
+                    <label for="mod-descripcion">Modificar descripcion de la nota</label>
+                    <textarea name="" id="mod-descripcion"></textarea>
+                    <button  type="button" id="mod-cancelar" class="btn-notas">Cancelar</button>
+                    <button  type="submit" class="btn-notas">Modificar</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div id="modal-foto" class="modal-notas modal-hidden">
+            <div class="cont-modal ">
+                <form class="formulario" class="formulario-notas">
+                    <h2 class="anotacion">Cambiar tu foto de perfil </h2>
+                    <label class="subtitulo" for="mod-foto-url">Foto por direccion Url</label>
+                    <input type="text" id="mod-foto-url">
+                    <label for="mod-foto-archivo">Foto de tus archivos</label>
+                    <input id="mod-foto-archivo"></input>
+                    <button  type="button" id="mod-cancelar-foto" class="btn-notas">Cancelar</button>
+                    <button  type="submit" class="btn-notas">Guardar</button>
+                </form>
+            </div>
+        </div> -->
     </main>
 
     <script type="module" src="./index.js" defer></script>

@@ -212,6 +212,90 @@ export function cambiarEstadoNota(event) {
 
 }
 
+
+function desplegarModificarNota(nota,idNota, posicionNota, baseNotas) {
+    Elementos.tituloNotaModificar.value = baseNotas[posicionNota].titulo;
+    Elementos.descripcionNotaModificar.value = baseNotas[posicionNota].descripcion;
+    Elementos.modalNotas.classList.remove("modal-hidden");
+    Elementos.modalNotas.classList.add(`nota${idNota}`);
+
+}
+
+
+export function modificarNota(event) {
+    event.preventDefault();
+
+    const baseNotasExiste = localStorage.getItem("Notas");
+    const baseNotas = baseNotasExiste ? JSON.parse(baseNotasExiste) : [];
+
+    if(!baseNotas.length){
+        alert("Error al acceder a la base de datos");
+        return;
+    }
+
+    let idNota="";
+
+    for (const clase of Elementos.modalNotas.classList) {
+        if (clase.startsWith("nota")) {
+            idNota= clase;
+            Elementos.modalNotas.classList.remove(clase);
+        }
+    }
+
+ 
+
+    const indiceNotaExiste = baseNotas.findIndex(not => not.id == idNota.replace("nota",""));
+
+    if(indiceNotaExiste == -1){
+        alert("La nota que desea modificar ya no existe");
+        return;
+    }
+
+    baseNotas[indiceNotaExiste].titulo = Elementos.tituloNotaModificar.value.replaceAll("<", "&#60;").replaceAll(">", "&#62;");
+    baseNotas[indiceNotaExiste].descripcion = Elementos.descripcionNotaModificar.value.replaceAll("<", "&#60;").replaceAll(">", "&#62;");
+    localStorage.setItem("Notas",JSON.stringify(baseNotas));
+
+
+    const htmlNota = document.getElementById(idNota);
+
+    Elementos.modalNotas.classList.add("modal-hidden"); 
+    
+    setTimeout(() => {
+        Elementos.formModalDatos.reset();
+        htmlNota.classList.add("ocultar-nota");
+         //ocultar la antigua nota
+        setTimeout(() => {
+         htmlNota.querySelector("h3").textContent = Elementos.tituloNotaModificar.value;
+           htmlNota.querySelector("p").textContent = Elementos.descripcionNotaModificar.value;
+            //cambiar html
+            setTimeout(() => {
+                htmlNota.classList.remove("ocultar-nota");
+                htmlNota.classList.add("mostrar-nota");
+                //mostrar
+
+            }, 1000);
+        }, 2000);
+    }, 300);
+
+}
+
+
+export function cancelarModificarNotas() {
+
+    Elementos.modalNotas.classList.add("modal-hidden");
+
+    for (const clase of Elementos.modalNotas.classList) {
+        if (clase.startsWith("nota")) {
+            Elementos.modalNotas.classList.remove(clase);
+        }
+    }
+
+    setTimeout(() => {
+        Elementos.formModalDatos.reset();
+    }, 300);
+}
+
+
 export function filtrarNotas(event) {
     const selectDeLaNota = event.target;
     const nuevoEstado = parseInt(selectDeLaNota.value);
@@ -237,6 +321,7 @@ export function filtrarNotas(event) {
         }
     }
 }
+
 export function cambiarNota(event) {
     const etiqueta = event.target;
 
@@ -244,7 +329,7 @@ export function cambiarNota(event) {
     //obtengo la nota
     const nota = etiqueta.closest(".notas-individuales");
     //obtengo el id de la nota eliminando la palabra nota para que solo queden los caracteres alfanumericos del id
-    const idNota = nota.id.replace("nota","");
+    const idNota = nota.id.replace("nota", "");
     //se llama el localstorage
     const baseNotasExiste = localStorage.getItem("Notas");
     let baseNotas = [];
@@ -264,31 +349,25 @@ export function cambiarNota(event) {
 
 
     if (etiqueta.className == 'btn-modificar-nota') {
-        modificarNota();
+        desplegarModificarNota(nota, idNota, indiceNotaExiste, baseNotas);
     }
     if (etiqueta.className == 'btn-borrar-nota') {
-        borrarNota(nota,idNota,indiceNotaExiste,baseNotas);
+        borrarNota(nota, idNota, indiceNotaExiste, baseNotas);
     }
 }
 
 
-function borrarNota(elementoNota,idNota,posicionNota,baseNotas) {
+function borrarNota(elementoNota, idNota, posicionNota, baseNotas) {
     //pide que va borrar(posicionNota) y cuantos va borrar(1) con el metodo de arreglos y sring splice
-  baseNotas.splice(posicionNota,1);
-  localStorage.setItem("Notas",JSON.stringify(baseNotas));
+    baseNotas.splice(posicionNota, 1);
+    localStorage.setItem("Notas", JSON.stringify(baseNotas));
 
-  animarNotaEspecifica(elementoNota,false);
-  setTimeout(() => {
-    document.getElementById(`nota${idNota}`).remove();
-  }, 2000);
-    
+    animarNotaEspecifica(elementoNota, false);
+    setTimeout(() => {
+        document.getElementById(`nota${idNota}`).remove();
+    }, 2000);
+
 }
-
-function modificarNota(event) {
-  
-}
-
-
 
 
 function animarNotaEspecifica(cual, quiero_mostar) {

@@ -48,6 +48,12 @@ categoriaNotas: document.getElementById("agrupar-notas"),
 inputTituloNota: document.getElementById("create-notes"),
 inputDescripcionNota: document.getElementById("descripcion"),
 
+// modalFotos:document.getElementById("modal-foto"),
+// imgPhotoUrl : document.getElementById("mod-foto-url"),
+// imgPhotoArchivo:document.getElementById("mod-foto-archivo"),
+// cancelarPhoto:document.getElementById("mod-cancelar-foto"),
+
+
 //modal modificar datos
 
 modalDatos : document.getElementById("modal-datos"),
@@ -62,6 +68,17 @@ claveNuevaConfirmacionModificar :document.getElementById("inputModConfirmarNueva
 cancelarModificar :document.getElementById("Modcancelar"),
 pErrorModificar : document.getElementById("p-modificar"),
 
+//modal modificar notas
+modalNotas : document.getElementById("mod-cont-notes"),
+formModalNotas: document.getElementById("form-mod-notas"),
+tituloNotaModificar : document.getElementById("mod-create-notes"),
+descripcionNotaModificar:document.getElementById("mod-descripcion"),
+cancelarNotaModificar: document.getElementById("mod-cancelar"),
+
+
+
 };
+
+
 
 export default Elementos;

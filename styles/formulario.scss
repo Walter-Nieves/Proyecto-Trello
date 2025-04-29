@@ -20,6 +20,14 @@
         width: 100%;
     }
 
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 30%;
+        border-radius: 10px;
+        resize: vertical;
+    }
+
     button {
         margin-top: 10px;
         border-radius: 5px;
@@ -80,14 +88,6 @@
 
         &>label.subtitulo {
             font-size: large;
-        }
-
-        &>textarea {
-            width: 100%;
-            max-width: 100%;
-            min-width: 30%;
-            border-radius: 10px;
-            resize: vertical;
         }
 
         &>button.btn-notas {

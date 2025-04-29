@@ -126,6 +126,13 @@ main > div.contiene-formularios > section > div.iniciar-registar form input, mai
   margin-top: 5px;
   width: 100%;
 }
+main > div.contiene-formularios > section > div.iniciar-registar form textarea, main > div.contiene-formularios > section > div form textarea, main > div.contiene-calificaciones form textarea, main .modal-notas .cont-modal form textarea, main .modal-datos .cont-modal form textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 30%;
+  border-radius: 10px;
+  resize: vertical;
+}
 main > div.contiene-formularios > section > div.iniciar-registar form button, main > div.contiene-formularios > section > div form button, main > div.contiene-calificaciones form button, main .modal-notas .cont-modal form button, main .modal-datos .cont-modal form button {
   margin-top: 10px;
   border-radius: 5px;
@@ -180,13 +187,6 @@ main > div.contiene-formularios > section > div form.formulario-notas > label.an
 }
 main > div.contiene-formularios > section > div form.formulario-notas > label.subtitulo, main > div.contiene-calificaciones form.formulario-notas > label.subtitulo, main .modal-notas .cont-modal form.formulario-notas > label.subtitulo, main .modal-datos .cont-modal form.formulario-notas > label.subtitulo {
   font-size: large;
-}
-main > div.contiene-formularios > section > div form.formulario-notas > textarea, main > div.contiene-calificaciones form.formulario-notas > textarea, main .modal-notas .cont-modal form.formulario-notas > textarea, main .modal-datos .cont-modal form.formulario-notas > textarea {
-  width: 100%;
-  max-width: 100%;
-  min-width: 30%;
-  border-radius: 10px;
-  resize: vertical;
 }
 main > div.contiene-formularios > section > div form.formulario-notas > button.btn-notas, main > div.contiene-calificaciones form.formulario-notas > button.btn-notas, main .modal-notas .cont-modal form.formulario-notas > button.btn-notas, main .modal-datos .cont-modal form.formulario-notas > button.btn-notas {
   background-color: blue;
@@ -496,6 +496,15 @@ main .modal-notas.modal-hidden .cont-modal, main .modal-datos.modal-hidden .cont
   h1 {
     display: none;
   }
+  header > div.perfil > div > ul.ul-header {
+    visibility: visible;
+    top: 0;
+    flex-direction: row;
+  }
+  header > div.perfil > div > ul.ul-header > li.li-header {
+    border: none;
+    border-radius: 0px;
+  }
   #perfil {
     margin: 0;
   }
@@ -519,9 +528,9 @@ main .modal-notas.modal-hidden .cont-modal, main .modal-datos.modal-hidden .cont
     margin: 5vh;
   }
   /* #nombreUsuarioHeader {
-      justify-content: center;
-      text-align: center;
-      font-size: 4vh; */
+        justify-content: center;
+        text-align: center;
+        font-size: 4vh; */
   /* esta opcion quita todas las propiedades de altura que le hubieras colocado antes aplica para todas las propiedades */
   /* height: unset; */
   /* } */
