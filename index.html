@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  <script type="module" crossorigin src="/assets/index-Dkj_lZC5.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cqg1nlZk.css">
+</head>
+
+<body>
+    <!-- instalamos sass para modulizar css -->
+    <!-- npm install sass --save-dev -->
+    <!-- con esta opcion activamos el watch y le decimos a la maquina que mire este archivo style.scss con este :style.css -->
+    <!-- npx sass --watch style.scss:style.css -->
+
+    <!-- git add . para actualizar todos los archivos
+    luego git commit -m "" para colocar cuales fueron los cambios realizados
+    por ultimo git push -->
+
+    <header>
+        <a href="#">
+            <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='3%203%2018%2018'%20style='fill:%20dodgerblue;transform:%20;msFilter:;'%3e%3cpath%20d='M18.75%203H5.25A2.25%202.25%200%200%200%203%205.25v13.5A2.25%202.25%200%200%200%205.25%2021h13.5A2.25%202.25%200%200%200%2021%2018.75V5.25A2.25%202.25%200%200%200%2018.75%203zm-7.92%2013.635a1.08%201.08%200%200%201-1.08%201.08H6.42a1.08%201.08%200%200%201-1.08-1.08V6.42c0-.597.483-1.08%201.08-1.08h3.33c.596%200%201.08.483%201.08%201.08v10.215zm7.83-4.5a1.08%201.08%200%200%201-1.08%201.08h-3.33a1.08%201.08%200%200%201-1.08-1.08V6.42c0-.597.484-1.08%201.08-1.08h3.33c.597%200%201.08.483%201.08%201.08v5.715z'%3e%3c/path%3e%3c/svg%3e" alt="Logo">
+            <!-- <i class='bx bxl-trello'></i> -->
+            <h1>Trello</h1>
+        </a>
+
+        <div class="perfil" id="perfil">
+            <label>
+
+                <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='white'%20class='bi%20bi-list'%20viewBox='0%200%2016%2016'%3e%3cpath%20fill-rule='evenodd'%20d='M2.5%2012a.5.5%200%200%201%20.5-.5h10a.5.5%200%200%201%200%201H3a.5.5%200%200%201-.5-.5m0-4a.5.5%200%200%201%20.5-.5h10a.5.5%200%200%201%200%201H3a.5.5%200%200%201-.5-.5m0-4a.5.5%200%200%201%20.5-.5h10a.5.5%200%200%201%200%201H3a.5.5%200%200%201-.5-.5'/%3e%3c/svg%3e" alt="Menú">
+                <input id="checkbox" type="checkbox">
+            </label>
+            <div>
+                <strong class="nombreUsuarioHeader" id="nombreUsuarioHeader"></strong>
+                <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='currentColor'%20class='bi%20bi-person-circle'%20viewBox='0%200%2016%2016'%3e%3cpath%20d='M11%206a3%203%200%201%201-6%200%203%203%200%200%201%206%200'/%3e%3cpath%20fill-rule='evenodd'%20d='M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-7a7%207%200%200%200-5.468%2011.37C3.242%2011.226%204.805%2010%208%2010s4.757%201.225%205.468%202.37A7%207%200%200%200%208%201'/%3e%3c/svg%3e" class="user" id="user" alt="Foto de perfil">
+                <ul class="ul-header">
+                    <li class="li-header" id="configuracion">Configuracion</li>
+                    <li class="li-header" id="salir">Salir</li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <main>
+        <div id="cont-regis" class="contiene-formularios mostrar-tarjeta">
+
+            <section id="vista0">
+
+                <div class="iniciar-registar">
+                    <form id="iniciarSesion" action="">
+                        <h2>Iniciar sesion</h2>
+                        <label for="inputCorreoInicio">Correo</label>
+                        <input id="inputCorreoInicio" type="email" required>
+                        <label for="inputContrasenaInicio">Contraseña</label>
+                        <input id="inputContrasenaInicio" type="password" required>
+
+                        <button type="submit" class="boton">Iniciar sesión</button>
+                    </form>
+                    <p id="inicio"></p>
+                    <a id="NoTengoCuenta" href="#">No tengo cuenta</a>
+                </div>
+            </section>
+            <section id="vista1">
+
+                <div class="iniciar-registar">
+                    <form id="registrarUsuario" action="">
+                        <h2>Registrarse</h2>
+                        <label for="inputNombre">Nombre</label>
+                        <input id="inputNombre" type="text" required>
+                        <label for="inputApellido">Apellido</label>
+                        <input id="inputApellido" type="text" required>
+                        <label for="inputEdad">Edad</label>
+                        <input id="inputEdad" type="number" min="10" step="1" required>
+                        <label for="inputEmailRegistro">Correo</label>
+                        <input id="inputEmailRegistro" type="email" required>
+                        <label for="inputContrasenaRegistro">Contraseña</label>
+                        <input id="inputContrasenaRegistro" type="password" required>
+                        <label for="inputConfirmarContrasena">Confirmar contraseña</label>
+                        <input id="inputConfirmarContrasena" type="password" required>
+
+                        <button type="submit" class="boton">Registrarse</button>
+                    </form>
+                    <p id="registro"></p>
+                    <a id="yaTengoCuenta" href="#">Ya tengo cuenta</a>
+                </div>
+            </section>
+            <section id="vista2">
+
+                <div>
+                    <form id="fotoPerfil" class="fotoPerfil">
+                        <h2 id="nombreUsuario">Foto de perfil</h2>
+                        <!-- <div id="userForm" src="./imagen/user.svg" alt=""></div> -->
+                        <img class="userForm" id="userForm" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='currentColor'%20class='bi%20bi-person-circle'%20viewBox='0%200%2016%2016'%3e%3cpath%20d='M11%206a3%203%200%201%201-6%200%203%203%200%200%201%206%200'/%3e%3cpath%20fill-rule='evenodd'%20d='M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-7a7%207%200%200%200-5.468%2011.37C3.242%2011.226%204.805%2010%208%2010s4.757%201.225%205.468%202.37A7%207%200%200%200%208%201'/%3e%3c/svg%3e" alt="Foto de perfil">
+
+                        <button id="cambiardatos" type="button" class="boton">Modificar datos</button>
+                        <div class="contieneDosbotones">
+                            <button id="cancelar" type="button" class="dosBotones">Cancelar</button>
+                            <button id="guardar" type="button" class="dosBotones">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div id="cont-notes" class="contiene-calificaciones">
+            <form id="formulario-notas" class="formulario-notas">
+                <label class="anotacion">Hacer una anotación</label>
+                <label class="subtitulo" for="create-notes">Titulo de la nota</label>
+                <input type="text" id="create-notes">
+                <label for="descripcion">Descripcion de la nota</label>
+                <textarea name="" id="descripcion"></textarea>
+                <button onsubmit="agregarNota()" type="submit" class="btn-notas">Agregar nota</button>
+            </form>
+            <div class="cont-categorias">
+                <hr>
+                <select id="agrupar-notas">
+                    <option style="color:black;" value="0">Todas</option>
+                    <option style="color:orange;" value="1">Pendientes</option>
+                    <option style="color:green;" value="2">Completas</option>
+                    <option style="color:red;" value="3">Incompletas</option>
+                </select>
+
+                <hr>
+            </div>
+            <div id="tres-notas" class="tres-notas">
+                <!-- <div class="notas-individuales mostrar-nota">
+                    <div>
+                        <div class="titulo-nota">
+                            <h3>Quimica</h3>
+                            <div>
+                                <img class="menu-nota" src="./imagen/three-dots-vertical.svg" alt="Options">
+                                <ul class="ul-nota">
+                                    <li>Modificar</li>
+                                    <li>Borrar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt atque ad delectus cumque
+                                maiores provident, ullam ut minus nihil facere nostrum veritatis amet totam. Dolorum
+                                sequi earum nesciunt id est?</p>
+                            <select style="color: orange;"
+                                onchange="this.style.color=this.querySelector('option:nth-child('+this.value+')').style.color;"
+                                class="contenido">
+                                <option style="color:orange;" value="1" onchange="cambiarNota()">Pendiente</option>
+                                <option style="color:green;" value="2" onchange="cambiarNota()">Completo</option>
+                                <option style="color:red;" value="3" onchange="cambiarNota()">Incompleto</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+        <div id="modal-datos" class="modal-datos modal-hidden">
+            <div class="cont-modal">
+                <form id="form-modificar">
+                    <h2>Modifcar datos</h2>
+                    <label for="inputModNombre">Nombre</label>
+                    <input id="inputModNombre" type="text" required>
+                    <label for="inputModApellido">Apellido</label>
+                    <input id="inputModApellido" type="text" required>
+                    <label for="inputModEdad">Edad</label>
+                    <input id="inputModEdad" type="number" min="10" step="1" required>
+                    <label for="inputModEmailRegistro">Correo</label>
+                    <input id="inputModEmailRegistro" type="email" required>
+                    <label for="inputModContrasenaRegistro">Contraseña anterior</label>
+                    <input id="inputModContrasenaRegistro" type="password" required>
+                    <label for="inputModConfirmarContrasena">Nueva contraseña</label>
+                    <input id="inputModConfirmarContrasena" type="password" required>
+                    <label for="inputModConfirmarNuevaContrasena">Confirmar nueva contraseña</label>
+                    <input id="inputModConfirmarNuevaContrasena" type="password" required>
+
+                    <div class="contieneDosbotones">
+                        <button id="Modcancelar" type="button" class="dosBotones">Cancelar</button>
+                        <button id="Modguardar" type="submit" class="dosBotones">Modificar</button>
+                    </div>
+                </form>
+                <p id="p-modificar" class="error-p"></p>
+            </div>
+        </div>
+        <div id="mod-cont-notes" class="modal-notas modal-hidden">
+            <div class="cont-modal contiene-calificaciones">
+                <form id="form-mod-notas" class="formulario" class="formulario-notas">
+                    <h2 class="anotacion">Modificar anotación</h2>
+                    <label class="subtitulo" for="mod-create-notes">Modificar titulo de la nota</label>
+                    <input type="text" id="mod-create-notes">
+                    <label for="mod-descripcion">Modificar descripcion de la nota</label>
+                    <textarea name="" id="mod-descripcion"></textarea>
+                    <button type="button" id="mod-cancelar" class="btn-notas">Cancelar</button>
+                    <button type="submit" class="btn-notas">Modificar</button>
+                </form>
+            </div>
+        </div>
+        <div id="modal-foto" class="modal-notas modal-hidden">
+            <div class="cont-modal ">
+                <form id="formChangeImage" class="formulario" class="diferente">
+                    <h2 class="anotacion">Cambiar tu foto de perfil </h2>
+                    <button type="button" id="btnChangeUrl" class="btn-notas">Url</button>
+                    <button type="button" >
+                        <label for="inputChangeFile" class="btn-notas">Archivo</label>
+                    </button>
+                    <input type="file" id="inputChangeFile" accept="image/*"  hidden >
+                    <br>
+                    <img id="imageChange" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='currentColor'%20class='bi%20bi-person-circle'%20viewBox='0%200%2016%2016'%3e%3cpath%20d='M11%206a3%203%200%201%201-6%200%203%203%200%200%201%206%200'/%3e%3cpath%20fill-rule='evenodd'%20d='M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-7a7%207%200%200%200-5.468%2011.37C3.242%2011.226%204.805%2010%208%2010s4.757%201.225%205.468%202.37A7%207%200%200%200%208%201'/%3e%3c/svg%3e" alt="Perfil">
+                    <button id="cancelarChangeFoto"  type="button">Cancelar</button>
+                    <button type="submit">Actualizar</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>
