@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-  <script type="module" crossorigin src="/assets/index-Dkj_lZC5.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Cqg1nlZk.css">
+  <script type="module" crossorigin src="/Proyecto-Trello/assets/index-Dkj_lZC5.js"></script>
+  <link rel="stylesheet" crossorigin href="/Proyecto-Trello/assets/index-Cqg1nlZk.css">
 </head>
 
 <body>
@@ -20,6 +20,29 @@
     luego git commit -m "" para colocar cuales fueron los cambios realizados
     por ultimo git push -->
 
+    <!-- como hacer un deploy en github pages utilizando vite en vez de html puro -->
+
+    <!-- se agregan al script estos dos: -->
+    <!-- "dev": "vite",
+    "build":"vite build", -->
+    <!-- y luego le damos npm run build y se crea la carpeta dist la cual contiene assets que a su vez tiene el codigo de produccion de
+     los archivos css, javascript y html -->
+
+     <!-- este comando para que vite quede instalado dentro de devdependencies
+     npm install vite --save-dev -->
+     <!-- al final debe quedar asi 
+     "devDependencies": {
+        "sass": "^1.86.0",
+        "vite": "^6.3.5"
+      }, -->
+
+      <!-- $ npm install gh-pages  --save-dev // este comando nos facilita la vida para subir las cosas a github cuando ya tenemos el codigo de produccion -->
+
+     <!-- en vite.config.js con este archivo le decimos donde se van a guardar los archivos -->
+
+     <!-- "deploy":"gh-pages -d dist", hacer un deploy y en esa carpeta incluir el dist -->
+
+     <!-- por ultimo npm run deploy y ya aparece el nuevo link en github -->
     <header>
         <a href="#">
             <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='3%203%2018%2018'%20style='fill:%20dodgerblue;transform:%20;msFilter:;'%3e%3cpath%20d='M18.75%203H5.25A2.25%202.25%200%200%200%203%205.25v13.5A2.25%202.25%200%200%200%205.25%2021h13.5A2.25%202.25%200%200%200%2021%2018.75V5.25A2.25%202.25%200%200%200%2018.75%203zm-7.92%2013.635a1.08%201.08%200%200%201-1.08%201.08H6.42a1.08%201.08%200%200%201-1.08-1.08V6.42c0-.597.483-1.08%201.08-1.08h3.33c.596%200%201.08.483%201.08%201.08v10.215zm7.83-4.5a1.08%201.08%200%200%201-1.08%201.08h-3.33a1.08%201.08%200%200%201-1.08-1.08V6.42c0-.597.484-1.08%201.08-1.08h3.33c.597%200%201.08.483%201.08%201.08v5.715z'%3e%3c/path%3e%3c/svg%3e" alt="Logo">
