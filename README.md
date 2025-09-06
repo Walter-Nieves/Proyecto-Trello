@@ -71,6 +71,10 @@ Las tecnologias empleadas en el proyecto fueron:
 |`Git`|Control de versiones para el proyecto|
 |`GitHub`|Repositorio remoto para el proyecto|
 
+✨ Mejoras a realizar
+
+Pulir el diseño responsive para asegurar que la aplicación se vea y funcione correctamente en distintos tamaños de pantalla y dispositivos móviles.
+
 
 
 
