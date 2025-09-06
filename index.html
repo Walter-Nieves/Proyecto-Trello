@@ -19,6 +19,29 @@
     luego git commit -m "" para colocar cuales fueron los cambios realizados
     por ultimo git push -->
 
+    <!-- como hacer un deploy en github pages utilizando vite en vez de html puro -->
+
+    <!-- se agregan al script estos dos: -->
+    <!-- "dev": "vite",
+    "build":"vite build", -->
+    <!-- y luego le damos npm run build y se crea la carpeta dist la cual contiene assets que a su vez tiene el codigo de produccion de
+     los archivos css, javascript y html -->
+
+     <!-- este comando para que vite quede instalado dentro de devdependencies
+     npm install vite --save-dev -->
+     <!-- al final debe quedar asi 
+     "devDependencies": {
+        "sass": "^1.86.0",
+        "vite": "^6.3.5"
+      }, -->
+
+      <!-- $ npm install gh-pages  --save-dev // este comando nos facilita la vida para subir las cosas a github cuando ya tenemos el codigo de produccion -->
+
+     <!-- en vite.config.js con este archivo le decimos donde se van a guardar los archivos -->
+
+     <!-- "deploy":"gh-pages -d dist", hacer un deploy y en esa carpeta incluir el dist -->
+
+     <!-- por ultimo npm run deploy y ya aparece el nuevo link en github -->
     <header>
         <a href="#">
             <img src="./imagen/trello.svg" alt="Logo">
@@ -180,7 +203,7 @@
                 <p id="p-modificar" class="error-p"></p>
             </div>
         </div>
-        <div id="mod-cont-notes"  class="modal-notas modal-hidden">
+        <div id="mod-cont-notes" class="modal-notas modal-hidden">
             <div class="cont-modal contiene-calificaciones">
                 <form id="form-mod-notas" class="formulario" class="formulario-notas">
                     <h2 class="anotacion">Modificar anotación</h2>
@@ -188,24 +211,28 @@
                     <input type="text" id="mod-create-notes">
                     <label for="mod-descripcion">Modificar descripcion de la nota</label>
                     <textarea name="" id="mod-descripcion"></textarea>
-                    <button  type="button" id="mod-cancelar" class="btn-notas">Cancelar</button>
-                    <button  type="submit" class="btn-notas">Modificar</button>
+                    <button type="button" id="mod-cancelar" class="btn-notas">Cancelar</button>
+                    <button type="submit" class="btn-notas">Modificar</button>
                 </form>
             </div>
         </div>
-        <!-- <div id="modal-foto" class="modal-notas modal-hidden">
+        <div id="modal-foto" class="modal-notas modal-hidden">
             <div class="cont-modal ">
-                <form class="formulario" class="formulario-notas">
+                <form id="formChangeImage" class="formulario" class="diferente">
                     <h2 class="anotacion">Cambiar tu foto de perfil </h2>
-                    <label class="subtitulo" for="mod-foto-url">Foto por direccion Url</label>
-                    <input type="text" id="mod-foto-url">
-                    <label for="mod-foto-archivo">Foto de tus archivos</label>
-                    <input id="mod-foto-archivo"></input>
-                    <button  type="button" id="mod-cancelar-foto" class="btn-notas">Cancelar</button>
-                    <button  type="submit" class="btn-notas">Guardar</button>
+                    <button type="button" id="btnChangeUrl" class="btn-notas">Url</button>
+                    <button type="button" >
+                        <label for="inputChangeFile" class="btn-notas">Archivo</label>
+                    </button>
+                    <input type="file" id="inputChangeFile" accept="image/*"  hidden >
+                    <br>
+                    <img id="imageChange" src="./imagen/user.svg" alt="Perfil">
+                    <button id="cancelarChangeFoto"  type="button">Cancelar</button>
+                    <button type="submit">Actualizar</button>
                 </form>
             </div>
-        </div> -->
+
+        </div>
     </main>
 
     <script type="module" src="./index.js" defer></script>

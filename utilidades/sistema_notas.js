@@ -2,6 +2,7 @@ import Elementos from "./elementos.js";
 import { usuario } from "./sistema_usuarios.js"
 import Nota from "../classes/Nota.js"
 import controlador_vistas from "./controlador.js";
+import three from "../imagen/three-dots-vertical.svg"
 
 
 export function crearNota(event) {
@@ -120,7 +121,7 @@ function crearHTMLNota(...notas) {
          <div class="titulo-nota">
              <h3>${titulo}</h3>
              <div>
-                 <img class="menu-nota" src="./imagen/three-dots-vertical.svg" alt="Options">
+                 <img class="menu-nota" src=${three} alt="Options">
                  <ul class="ul-nota">
                      <li class="btn-modificar-nota">Modificar</li>
                      <li class="btn-borrar-nota" >Borrar</li>
@@ -392,3 +393,4 @@ function animarNotaEspecifica(cual, quiero_mostar) {
         }, 2000);
     }
 }
+
