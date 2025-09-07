@@ -6,7 +6,7 @@ Presione 'Guardar' para confirmar cambios`),setTimeout(()=>{e.formModalFoto.rese
          <div class="titulo-nota">
              <h3>${A}</h3>
              <div>
-                 <img class="menu-nota" src="./imagen/three-dots-vertical.svg" alt="Options">
+                 <img class="menu-nota" src="../imagen/three-dots-vertical.svg"  alt="Options">
                  <ul class="ul-nota">
                      <li class="btn-modificar-nota">Modificar</li>
                      <li class="btn-borrar-nota" >Borrar</li>
