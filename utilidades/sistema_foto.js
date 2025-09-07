@@ -1,6 +1,6 @@
 import Elementos from "./elementos.js";
 import { usuario } from "./sistema_usuarios.js";
-import extractFrom from "extract-uri-image";
+//import extractFrom from "extract-uri-image";
 
 
 
