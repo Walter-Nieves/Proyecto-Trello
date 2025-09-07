@@ -2,7 +2,7 @@ import Elementos from "./elementos.js";
 import { usuario } from "./sistema_usuarios.js"
 import Nota from "../classes/Nota.js"
 import controlador_vistas from "./controlador.js";
-import three from "../imagen/three-dots-vertical.svg"
+//import three from "../imagen/three-dots-vertical.svg"
 
 
 export function crearNota(event) {
